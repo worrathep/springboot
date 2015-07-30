@@ -23,6 +23,10 @@ public class HelloWorldTest {
     @Qualifier("helloWorld")
     private Hello hello;
 
+    @Autowired
+    @Qualifier("helloSpring")
+    private Hello helloSpring2;
+
     @Test
     public void testHelloWorld() {
         final String expect = "Hello World !";
@@ -50,5 +54,10 @@ public class HelloWorldTest {
     @Test
     public void testIsSingleton() {
         Assert.assertTrue(helloWorld == hello);
+    }
+
+    @Test
+    public void testNotSingleton() {
+        Assert.assertTrue(helloSpring != helloSpring2);
     }
 }
