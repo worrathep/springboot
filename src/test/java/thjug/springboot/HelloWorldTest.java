@@ -47,4 +47,8 @@ public class HelloWorldTest {
         Assert.assertThat(result, Matchers.equalTo(expect));
     }
 
+    @Test
+    public void testIsSingleton() {
+        Assert.assertTrue(helloWorld == hello);
+    }
 }
