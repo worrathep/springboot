@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -13,12 +14,35 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class HelloWorldTest {
 
     @Autowired
-    private HelloWorld hw;
+    private Hello helloWorld;
+
+    @Autowired
+    private Hello helloSpring;
+
+    @Autowired
+    @Qualifier("helloWorld")
+    private Hello hello;
 
     @Test
-    public void testSay() {
+    public void testHelloWorld() {
         final String expect = "Hello World !";
-        final String result = hw.say();
+        final String result = helloWorld.say();
+
+        Assert.assertThat(result, Matchers.equalTo(expect));
+    }
+
+    @Test
+    public void testHelloSpring() {
+        final String expect = "Hello Spring !";
+        final String result = helloSpring.say();
+
+        Assert.assertThat(result, Matchers.equalTo(expect));
+    }
+
+    @Test
+    public void testHello() {
+        final String expect = "Hello World !";
+        final String result = hello.say();
 
         Assert.assertThat(result, Matchers.equalTo(expect));
     }

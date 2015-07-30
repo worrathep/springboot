@@ -2,11 +2,11 @@ package thjug.springboot;
 
 import org.springframework.stereotype.Component;
 
-@Component("helloWorld")
-public class HelloWorld implements Hello {
+@Component("helloSpring")
+public class HelloSpring implements Hello {
 
     @Override
     public String say() {
-        return "Hello World !";
+        return "Hello Spring !";
     }
 }
