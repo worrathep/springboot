@@ -1,7 +1,7 @@
-From openjdk:8-jdk
+From gradle:5.1.1-jdk8-alpine
 
-COPY / /app
+COPY / /src
 
-WORKDIR /app
+WORKDIR /src
 
 EXPOSE 8080
